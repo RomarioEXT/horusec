@@ -107,15 +107,15 @@ build-install-cli-windows:
 	env GOOS=windows GOARCH=amd64 $(GO) build -o "$(PATH_BINARY_BUILD_CLI)/horusec-win.exe" $(MAIN)
 
 build-install-stand-alone-cli-linux-amd64:
-	rm -rf "$(PATH_BINARY_BUILD_CLI)/horusec-linux-$(ARCH_AMD64)" &> /dev/null
+	rm -rf "$(PATH_BINARY_BUILD_CLI)/horusec-linux-$(ARCH_AMD)" &> /dev/null
 	CGO_ENABLED=0 GOOS=linux GOARCH=$(ARCH_AMD64) $(GO) build -ldflags "-X github.com/ZupIT/horusec/config/dist.standAlone=true" -a -installsuffix cgo -o "$(PATH_BINARY_BUILD_CLI)/horusec-linux-amd64" $(MAIN)
 	chmod +x "$(PATH_BINARY_BUILD_CLI)/horusec-linux-$(ARCH_AMD64)"
 	horusec-linux-$(ARCH_AMD64) version
 
 build-install-stand-alone-cli-linux-arm64:
-	rm -rf "$(PATH_BINARY_BUILD_CLI)/horusec-linux-$(ARCH_ARM64)" &> /dev/null
-	CGO_ENABLED=0 GOOS=linux GOARCH=$(ARCH_ARM64) $(GO) build -ldflags "-X github.com/ZupIT/horusec/config/dist.standAlone=true" -a -installsuffix cgo -o "$(PATH_BINARY_BUILD_CLI)/horusec-linux-arm64" $(MAIN)
-	chmod +x "$(PATH_BINARY_BUILD_CLI)/horusec-linux-$(ARCH_ARM64)"
+	rm -rf "$(PATH_BINARY_BUILD_CLI)/horusec-linux-$(ARCH_ARM)" &> /dev/null
+	CGO_ENABLED=0 GOOS=linux GOARCH=$(ARCH_ARM) $(GO) build -ldflags "-X github.com/ZupIT/horusec/config/dist.standAlone=true" -a -installsuffix cgo -o "$(PATH_BINARY_BUILD_CLI)/horusec-linux-arm64" $(MAIN)
+	chmod +x "$(PATH_BINARY_BUILD_CLI)/horusec-linux-$(ARCH_ARM)"
 	horusec-linux-$(ARCH_ARM64) version
 
 build-install-stand-alone-cli-darwin-amd64:
